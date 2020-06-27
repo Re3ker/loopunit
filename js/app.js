@@ -7,13 +7,15 @@ const videoPlayer = document.querySelector('#videoPlayer');
 const playBtn = document.querySelector('#playBtn');
 const progressBar = document.querySelector('#progressBar');
 const mainUploadBtnText = document.querySelector('#mainUploadBtnText');
+
 navUploadBtn.addEventListener('click', triggerUpload);
 videoPlayer.addEventListener('click', togglePlay);
 videoPlayer.addEventListener('play', updatePlaystate);
 videoPlayer.addEventListener('pause', updatePlaystate);
-videoPlayer.addEventListener('timeupdate', handleProgress);
 playBtn.addEventListener('click', togglePlay);
 
+let videoThrough = 0;
+let progressTimer = setInterval(handleProgress, 20);
 let firstUpload = true;
 
 fileUpload.onchange = function(event) {
@@ -25,6 +27,8 @@ fileUpload.onchange = function(event) {
   let file = event.target.files[0];
   let blobURL = URL.createObjectURL(file);
   videoPlayer.src = blobURL;
+  clearInterval(progressTimer);
+  setTimeout(function(){progressTimer = setInterval(handleProgress, 20);}, 200);
 }
 function triggerUpload(){
   mainUploadBtn.click();
@@ -41,6 +45,13 @@ function updatePlaystate(){
 }
 
 function handleProgress() {
-  const percent = Math.floor((videoPlayer.currentTime / videoPlayer.duration) * 100);
-  progressBar.style.width = `${testing}%`;
+  if (!videoPlayer || !videoPlayer.duration) {
+    return;
+  }
+  var through = (videoPlayer.currentTime / videoPlayer.duration);
+  if (through < videoThrough) {
+    videoThrough = through;
+  }
+  videoThrough = 0.9 * videoThrough + 0.1 * through;
+  progressBar.style.width = `${(videoThrough * 100).toFixed(3)}%`;
 }

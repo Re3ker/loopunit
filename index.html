@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loop Unit</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
+
+<body>
+  <nav class="main-nav">
+    <div class="container">
+      <div class="nav-content">
+        <a href="/" class="branding">
+          <img src="images/loop.png" alt="LoopUnit">
+          <span>Loop Unit</span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="#" id="navUploadBtn" class="menu-item menu-item-highlight" title="Upload Video">Upload Loop</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="main-content container" id="mainSection">
+    <h1><img src="images/loop.png" alt="LoopUnit"> Loop Unit</h1>
+    <h2>The most simple way to not mess up!</h2>
+    <p>Upload &amp; and test your loop here, before you publish it somewhere else.</p>
+  </section>
+
+  <section class="video-section" id="videoSection">
+    <div class="player">
+      <video id="videoPlayer" class="player-video viewer" autoplay loop>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="player-controls">
+        <div class="player-progress">
+         <div class="player-progress-filled" id="progressBar"></div>
+        </div>
+        <button class="player-button toggle" id="playBtn" title="Toggle Play">►</button>
+      </div>
+    </div>
+    <label for="fileUpload" id="mainUploadBtn" class="upload-label">
+      <span id="mainUploadBtnText">Upload Loop</span>
+      <input type="file" id="fileUpload" style="display:none">
+    </label>
+  </section>
+</body>
+
+</html>

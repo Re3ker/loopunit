@@ -1,0 +1,138 @@
+$theme-bg: #161618
+$theme-color: #ee4d2e
+
+*
+  box-sizing: border-box
+  padding: 0
+  margin: 0
+
+body
+  background: $theme-bg
+  color: white
+  font-family: sans-serif
+
+.container
+  width: 100%
+  max-width: 1050px
+  margin: 0 auto
+  line-height: 1.2rem
+
+.main-nav
+  background: black
+  padding: 0.8rem 0
+
+  .nav-content
+    display: flex
+    justify-content: space-between
+
+  .branding
+    display: flex
+    font-size: 1.5rem
+    color: white
+    align-items: center
+    text-decoration: none
+
+    img
+      margin-right: 0.5rem
+      max-height: 1.5rem
+
+  .nav-menu
+    list-style-type: none
+
+    li
+      margin-right: 0.5rem
+
+      &:last-child
+        margin-right: 0
+
+      .menu-item
+        text-decoration: none
+        line-height: 1
+        color: white
+
+        &-highlight
+          display: inline-block
+          background: $theme-color
+          padding: 0.7rem
+          font-size: 0.8rem
+.main-content
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding: 3rem 0
+
+  h1
+    display: flex
+    align-items: center
+    font-size: 2.5rem
+    margin-bottom: 1rem
+    img
+      margin-right: 0.7rem
+
+  h2
+    font-size: 1.4rem
+    font-style: italic
+    font-weight: normal
+    margin-bottom: 0.7rem
+
+  p
+    margin-bottom: 2rem
+
+  
+
+.video-section
+  display: flex
+  flex-direction: column
+  align-items: center
+
+  .upload-label
+    text-decoration: none
+    line-height: 1
+    color: white
+    display: inline-block
+    background: $theme-color
+    padding: 0.7rem 2rem
+    font-size: 1rem
+    cursor: pointer
+  
+  &.pt
+    padding-top: 3rem
+
+  .player
+    margin-bottom: 1rem
+    max-height: 600px
+    position: relative
+
+    &-video
+      width: 100%
+      max-height: 600px
+    
+    &-button
+      color: white
+      border: none
+      background: rgba(0,0,0,0)
+      border-radius: 50%
+      font-size: 1.5rem
+      text-align: center
+      position: absolute
+      bottom: 1rem
+      left: 1rem
+      cursor: pointer
+      transition: opacity ease 0.3s
+      opacity: 0
+    
+    &:hover
+      .player-button
+        opacity: 1
+    
+    &-progress
+      width: 100%
+      position: relative
+      height: 5px
+      transition: height 0.3s
+      background: rgba(0,0,0,0)
+
+    &-progress-filled
+      width: 50%
+      height: 5px
+      background: $theme-color
